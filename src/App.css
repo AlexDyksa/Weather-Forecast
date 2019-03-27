@@ -10,4 +10,5 @@
     width: 50%;
     height: 350px;
     overflow: hidden;
+    display: flex;
 }
