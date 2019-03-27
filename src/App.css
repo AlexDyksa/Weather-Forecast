@@ -5,7 +5,6 @@
     align-items: center;
 }
 .app__inner {
-    border: 1px solid brown;
     border-radius: 4px;
     width: 50%;
     height: 350px;
