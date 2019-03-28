@@ -5,7 +5,7 @@ export const changeCityName = newCityName => ({
     payload: newCityName
 });
 
-export const fetchData = () => ({
+export const fetchData = data => ({
     type: FETCHED_DATA,
-    payload: undefined
+    payload: data
 });
