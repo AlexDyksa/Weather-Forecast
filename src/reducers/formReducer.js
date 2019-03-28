@@ -1,11 +1,11 @@
-import { CHANGED_CITY_NAME, FETCHED_DATA } from '../actions/types';
+import { CHANGED_CITY_NAME } from '../actions/types';
 
 const initialState = {
-    city: undefined,
-    temp: undefined,
-    sunrise: undefined,
-    sunset: undefined,
-    enteredCityName: undefined
+    city: '',
+    temp: '',
+    sunrise: '',
+    sunset: '',
+    enteredCityName: ''
 };
 
 export const formReducer = (state = initialState, action) => {
