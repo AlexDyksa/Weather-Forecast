@@ -12,12 +12,20 @@ class Form extends Component {
 
         fetch(API_URL)
             .then(res => res.json())
-            .then(data => ({
-                city: data.name,
-                temp: data.main.temp,
-                sunrise: data.sys.sunrise,
-                sunset: data.sys.sunset
-            }))
+            .then(data => {
+                let sunriseTimeTransformed = new Date(data.sys.sunrise * 1000);
+                sunriseTimeTransformed = sunriseTimeTransformed.getHours() + ':' + sunriseTimeTransformed.getMinutes();
+
+                let sunsetTimeTransformed = new Date(data.sys.sunset * 1000);
+                sunsetTimeTransformed = sunsetTimeTransformed.getHours() + ':' + sunsetTimeTransformed.getMinutes();
+
+                return {
+                    city: data.name,
+                    temp: data.main.temp,
+                    sunrise: sunriseTimeTransformed,
+                    sunset: sunsetTimeTransformed
+                }
+            })
             .then(weatherForecast => this.props.fetchData(weatherForecast));
     };
 
