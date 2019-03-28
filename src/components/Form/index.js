@@ -1,19 +1,31 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-const Form = (props) => (
-    <form
-        className="app__form"
-        onSubmit={e => e.preventDefault()}
-    >
-        <input
-            type="text"
-            className="app__search"
-            placeholder="Enter city name"
-            value={props.enteredCityName}
-            onChange={e => props.changeCityName(e.target.value)}
-        />
-        <button className="app__submit">Get Forecast</button>
-    </form>
-);
+class Form extends Component {
+    handleSubmitForm = e => {
+        e.preventDefault();
+    };
+
+    handleChangeCityName = e => {
+        this.props.changeCityName(e.target.value);
+    };
+
+    render() {
+        return (
+            <form
+                className="app__form"
+                onSubmit={this.handleSubmitForm}
+            >
+                <input
+                    type="text"
+                    className="app__search"
+                    placeholder="Enter city name"
+                    value={this.props.enteredCityName}
+                    onChange={this.handleChangeCityName}
+                />
+                <button className="app__submit">Get Forecast</button>
+            </form>
+        );
+    }
+}
 
 export default Form;
