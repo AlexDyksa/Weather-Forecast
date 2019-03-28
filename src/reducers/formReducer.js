@@ -8,7 +8,7 @@ const initialState = {
     enteredCityName: ''
 };
 
-export const formReducer = (state = initialState, action) => {
+const formReducer = (state = initialState, action) => {
     switch (action.type) {
         case CHANGED_CITY_NAME:
             return {
@@ -27,3 +27,5 @@ export const formReducer = (state = initialState, action) => {
             return state;
     }
 };
+
+export default formReducer;
