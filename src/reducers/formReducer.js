@@ -1,4 +1,4 @@
-import { CHANGED_CITY_NAME } from '../actions/types';
+import { CHANGED_CITY_NAME, FETCHED_DATA } from '../actions/types';
 
 const initialState = {
     city: '',
@@ -14,6 +14,14 @@ export const formReducer = (state = initialState, action) => {
             return {
                 ...state,
                 enteredCityName: action.payload
+            };
+        case FETCHED_DATA:
+            return {
+                ...state,
+                city: action.payload.city,
+                temp: action.payload.temp,
+                sunrise: action.payload.sunrise,
+                sunset: action.payload.sunset
             };
         default:
             return state;
