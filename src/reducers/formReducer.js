@@ -18,6 +18,7 @@ const formReducer = (state = initialState, action) => {
         case FETCHED_DATA:
             return {
                 ...state,
+                code: action.payload.code,
                 city: action.payload.city,
                 temp: action.payload.temp,
                 sunrise: action.payload.sunrise,
