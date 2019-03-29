@@ -1,5 +1,17 @@
 .logo {
-    background-color: pink;
+    background-color:#222;
     height: 100%;
     width: 30%;
+    color:#fff ;
+    font-size: 40px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-transform: uppercase;
+}
+
+.logo__icons i {
+    font-size: 25px;
+    margin: 0 5px;
 }
