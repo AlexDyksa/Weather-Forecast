@@ -1,0 +1,33 @@
+.app__form {
+    display: flex;
+    align-items: center;
+}
+
+.app__search {
+    font-size: 20px;
+    padding: 6px 6px;
+    margin-right: 15px;
+    font-family: 'Oswald', sans-serif;
+    height: 40px;
+    box-sizing: border-box;
+    width: 250px;
+
+}
+
+.app__submit {
+    color: #fff;
+    font-size: 20px;
+    font-family: 'Oswald', sans-serif;
+    background-color: #222;
+    border: none;
+    /* padding: 10px; */
+    width: 140px;
+    outline: none;
+    height: 40px;
+    box-sizing: border-box;
+
+}
+
+.app__submit:hover {
+    background-color: #777;
+}

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import './styles.css';
+
 class Form extends Component {
     handleSubmitForm = e => {
         e.preventDefault();
@@ -19,7 +21,10 @@ class Form extends Component {
                 let sunsetTimeTransformed = new Date(data.sys.sunset * 1000);
                 sunsetTimeTransformed = sunsetTimeTransformed.getHours() + ':' + sunsetTimeTransformed.getMinutes();
 
+                console.log(data);
+
                 return {
+                    code: data.sys.country,
                     city: data.name,
                     temp: data.main.temp,
                     sunrise: sunriseTimeTransformed,
