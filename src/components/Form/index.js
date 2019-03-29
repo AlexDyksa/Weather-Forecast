@@ -15,20 +15,28 @@ class Form extends Component {
         fetch(API_URL)
             .then(res => res.json())
             .then(data => {
-                let sunriseTimeTransformed = new Date(data.sys.sunrise * 1000);
-                sunriseTimeTransformed = sunriseTimeTransformed.getHours() + ':' + sunriseTimeTransformed.getMinutes();
+                let setTime = timeInMilliseconds => {
+                    let newTime = new Date(timeInMilliseconds * 1000);
+                    return newTime.getHours() + ':' + transformMinutes(newTime.getMinutes());
+                }
 
-                let sunsetTimeTransformed = new Date(data.sys.sunset * 1000);
-                sunsetTimeTransformed = sunsetTimeTransformed.getHours() + ':' + sunsetTimeTransformed.getMinutes();
-
-                console.log(data);
+                let transformMinutes = (minutes) => {
+                    if (String(minutes).length === 1) {
+                        console.log('0' + minutes);
+                        return '0' + minutes;
+                    } else {
+                        console.log('ddd');
+                        return minutes;
+                    }
+                }
 
                 return {
                     code: data.sys.country,
                     city: data.name,
-                    temp: data.main.temp,
-                    sunrise: sunriseTimeTransformed,
-                    sunset: sunsetTimeTransformed
+                    temp: +(data.main.temp).toFixed(),
+                    sunrise: setTime(data.sys.sunrise),
+                    sunset: setTime(data.sys.sunset),
+                    wind: data.wind.speed
                 }
             })
             .then(weatherForecast => this.props.fetchData(weatherForecast));
@@ -52,7 +60,12 @@ class Form extends Component {
                     value={this.props.enteredCityName}
                     onChange={this.handleChangeCityName}
                 />
-                <button className="app__submit">Get Forecast</button>
+                <button
+                    className={!this.props.enteredCityName ? 'app__submit app__submit-inactive' : 'app__submit'}
+                    disabled={!this.props.enteredCityName ? true : false}
+                >
+                    Get Forecast
+                </button>
             </form>
         );
     }
