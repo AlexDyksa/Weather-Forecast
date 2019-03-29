@@ -27,11 +27,15 @@
 }
 
 .outcomes__row {
-    margin: 25px 0;
+    margin: 15px 0;
 }
 
 .outcomes__row:last-of-type {
     margin-bottom: 0;
+}
+
+.outcomes__row span {
+    margin: 0 5px 0 7px;
 }
 
 .outcomes__icon {
@@ -46,4 +50,8 @@
 
 .outcomes .fa-sun {
     color: orange;
+}
+
+.outcomes .fa-wind {
+    color: blue;
 }

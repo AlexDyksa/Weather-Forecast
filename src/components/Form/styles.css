@@ -25,9 +25,13 @@
     outline: none;
     height: 40px;
     box-sizing: border-box;
+}
 
+.app__submit-inactive {
+    background-color: #777;
 }
 
 .app__submit:hover {
     background-color: #777;
+    cursor: pointer;
 }
