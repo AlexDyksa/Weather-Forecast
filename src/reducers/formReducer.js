@@ -1,11 +1,14 @@
 import { CHANGED_CITY_NAME, FETCHED_DATA } from '../actions/types';
 
 const initialState = {
+    code: '',
     city: '',
     temp: '',
     sunrise: '',
     sunset: '',
-    enteredCityName: ''
+    wind: '',
+    enteredCityName: '',
+    isVisibleOutcomes: false
 };
 
 const formReducer = (state = initialState, action) => {
@@ -22,7 +25,9 @@ const formReducer = (state = initialState, action) => {
                 city: action.payload.city,
                 temp: action.payload.temp,
                 sunrise: action.payload.sunrise,
-                sunset: action.payload.sunset
+                sunset: action.payload.sunset,
+                wind: action.payload.wind,
+                isVisibleOutcomes: true
             };
         default:
             return state;
