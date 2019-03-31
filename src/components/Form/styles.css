@@ -12,6 +12,7 @@
     box-sizing: border-box;
     width: 250px;
     text-transform: capitalize;
+    border:1px solid #2b75b1;
 
 }
 
