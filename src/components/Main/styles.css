@@ -2,4 +2,7 @@
     width: 70%;
     padding: 15px 30px;
     border: 1px solid #2b75b1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
