@@ -6,7 +6,6 @@
     "@fortawesome/fontawesome-free": "^5.8.1",
     "react": "^16.8.5",
     "react-dom": "^16.8.5",
-    "react-flip-move": "^3.0.3",
     "react-redux": "^6.0.1",
     "react-scripts": "2.1.8",
     "redux": "^4.0.1"
