@@ -3,11 +3,6 @@ import React, { Component } from 'react';
 import './styles.css';
 
 class Form extends Component {
-    handleSubmitForm = e => {
-        e.preventDefault();
-        this.getWeatherData();
-    };
-
     setTime = timeInMilliseconds => {
         let newTime = new Date(timeInMilliseconds * 1000);
         return newTime.getHours() + ':' + this.transformMinutes(newTime.getMinutes());
@@ -16,13 +11,18 @@ class Form extends Component {
     transformMinutes = minutes => {
         if (String(minutes).length === 1) {
             return '0' + minutes;
-        } else {
-            return minutes;
         }
+
+        return minutes;
     };
 
-    transformTemperature = temp => {
+    roundTemperature = temp => {
         return +temp.toFixed();
+    };
+
+    handleSubmitForm = e => {
+        e.preventDefault();
+        this.getWeatherData();
     };
 
     getWeatherData = () => {
@@ -35,7 +35,7 @@ class Form extends Component {
                 return {
                     code: dataJSON.sys.country,
                     city: dataJSON.name,
-                    temp: this.transformTemperature(dataJSON.main.temp),
+                    temp: this.roundTemperature(dataJSON.main.temp),
                     sunrise: this.setTime(dataJSON.sys.sunrise),
                     sunset: this.setTime(dataJSON.sys.sunset),
                     wind: dataJSON.wind.speed,
@@ -43,7 +43,7 @@ class Form extends Component {
                 }
             })
             .then(data => this.props.fetchData(data))
-            .catch(error => this.props.fetchData({ error: true }));
+            .catch(() => this.props.fetchData({ error: true }));
     }
 
     handleChangeCityName = e => {
