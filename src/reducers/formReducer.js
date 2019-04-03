@@ -8,7 +8,7 @@ const initialState = {
     sunset: '',
     wind: '',
     enteredCityName: '',
-    isVisibleOutcomes: false
+    error: ''
 };
 
 const formReducer = (state = initialState, action) => {
@@ -27,7 +27,7 @@ const formReducer = (state = initialState, action) => {
                 sunrise: action.payload.sunrise,
                 sunset: action.payload.sunset,
                 wind: action.payload.wind,
-                isVisibleOutcomes: true
+                error: action.payload.error
             };
         default:
             return state;
