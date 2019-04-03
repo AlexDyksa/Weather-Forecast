@@ -8,40 +8,43 @@ class Form extends Component {
         this.getWeatherData();
     };
 
+    setTime = timeInMilliseconds => {
+        let newTime = new Date(timeInMilliseconds * 1000);
+        return newTime.getHours() + ':' + this.transformMinutes(newTime.getMinutes());
+    };
+
+    transformMinutes = minutes => {
+        if (String(minutes).length === 1) {
+            return '0' + minutes;
+        } else {
+            return minutes;
+        }
+    };
+
+    transformTemperature = temp => {
+        return +temp.toFixed();
+    };
+
     getWeatherData = () => {
         const API_KEY = '7122cd64b0ae03295d684f0a0554f2b9';
         const API_URL = `http://api.openweathermap.org/data/2.5/weather?q=${this.props.enteredCityName}&units=metric&appid=${API_KEY}`;
 
         fetch(API_URL)
             .then(res => res.json())
-            .then(data => {
-                let setTime = timeInMilliseconds => {
-                    let newTime = new Date(timeInMilliseconds * 1000);
-                    return newTime.getHours() + ':' + transformMinutes(newTime.getMinutes());
-                }
-
-                let transformMinutes = (minutes) => {
-                    if (String(minutes).length === 1) {
-                        console.log('0' + minutes);
-                        return '0' + minutes;
-                    } else {
-                        console.log('ddd');
-                        return minutes;
-                    }
-                }
-
+            .then(dataJSON => {
                 return {
-                    code: data.sys.country,
-                    city: data.name,
-                    temp: +(data.main.temp).toFixed(),
-                    sunrise: setTime(data.sys.sunrise),
-                    sunset: setTime(data.sys.sunset),
-                    wind: data.wind.speed
+                    code: dataJSON.sys.country,
+                    city: dataJSON.name,
+                    temp: this.transformTemperature(dataJSON.main.temp),
+                    sunrise: this.setTime(dataJSON.sys.sunrise),
+                    sunset: this.setTime(dataJSON.sys.sunset),
+                    wind: dataJSON.wind.speed,
+                    error: false
                 }
             })
-            .then(weatherForecast => this.props.fetchData(weatherForecast));
-    };
-
+            .then(data => this.props.fetchData(data))
+            .catch(error => this.props.fetchData({ error: true }));
+    }
 
     handleChangeCityName = e => {
         this.props.changeCityName(e.target.value);

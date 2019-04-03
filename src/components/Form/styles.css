@@ -27,13 +27,15 @@
     outline: none;
     height: 40px;
     box-sizing: border-box;
+    cursor: pointer;
 }
 
 .app__submit-inactive {
     background-color: #777;
 }
 
-.app__submit:hover {
-    background-color: #777;
-    cursor: pointer;
+.app__submit:not(.app__submit-inactive):hover {
+    background-color: #fff;
+    color: #2b75b1;
+    border: 1px solid #2b75b1;
 }
