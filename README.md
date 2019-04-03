@@ -1,4 +1,6 @@
-# Project Description:
+# Project Description
+
+App allows you enter city name and get current weather forecast (temperature, wind speed, sunset/sunrise time) in entered city.
 
 ## Available Scripts
 
