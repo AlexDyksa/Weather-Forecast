@@ -1,0 +1,13 @@
+{
+  "main.css": "/current_weather/static/css/main.b40bbf9d.chunk.css",
+  "main.js": "/current_weather/static/js/main.e9f6cced.chunk.js",
+  "main.js.map": "/current_weather/static/js/main.e9f6cced.chunk.js.map",
+  "runtime~main.js": "/current_weather/static/js/runtime~main.7e0f11d9.js",
+  "runtime~main.js.map": "/current_weather/static/js/runtime~main.7e0f11d9.js.map",
+  "static/js/2.a81dd12c.chunk.js": "/current_weather/static/js/2.a81dd12c.chunk.js",
+  "static/js/2.a81dd12c.chunk.js.map": "/current_weather/static/js/2.a81dd12c.chunk.js.map",
+  "index.html": "/current_weather/index.html",
+  "precache-manifest.d908fab3c80775d00a0d7c9a31649586.js": "/current_weather/precache-manifest.d908fab3c80775d00a0d7c9a31649586.js",
+  "service-worker.js": "/current_weather/service-worker.js",
+  "static/css/main.b40bbf9d.chunk.css.map": "/current_weather/static/css/main.b40bbf9d.chunk.css.map"
+}
